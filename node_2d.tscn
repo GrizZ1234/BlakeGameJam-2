@@ -1,64 +1,59 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjoqaq1t6m5wg"]
+[gd_scene load_steps=10 format=3 uid="uid://cjoqaq1t6m5wg"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_d17lx"]
+[ext_resource type="Script" path="res://main.gd" id="1_sdy21"]
+[ext_resource type="Texture2D" uid="uid://bhwrg783dnyvy" path="res://download.png" id="2_m3o4w"]
 [ext_resource type="Texture2D" uid="uid://x8n8k7ltkoob" path="res://icon.svg" id="2_t2r77"]
+[ext_resource type="Script" path="res://moving_rect.gd" id="4_21sqc"]
+[ext_resource type="PackedScene" uid="uid://boo2mtcdjhm8r" path="res://moving_rect.tscn" id="5_hu5nu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0re8n"]
-size = Vector2(40, 40)
+size = Vector2(400.976, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqwls"]
 size = Vector2(128, 128)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3hng"]
+size = Vector2(300, 20)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_sdy21")
 
-[node name="Floor" type="RigidBody2D" parent="."]
-position = Vector2(0, 94)
-scale = Vector2(8.2, 1.4)
-gravity_scale = 0.0
-lock_rotation = true
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource("RectangleShape2D_0re8n")
-
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Download" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(20, -20)
+scale = Vector2(5.80328, 8.7027)
+texture = ExtResource("2_m3o4w")
 
 [node name="Deadly" type="RigidBody2D" parent="." groups=["DeadlyItems"]]
-position = Vector2(385, 92)
+position = Vector2(-3, 735)
 scale = Vector2(8.2, 1.4)
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadly"]
+position = Vector2(29.6341, -5.00003)
 shape = SubResource("RectangleShape2D_0re8n")
 
 [node name="ColorRect" type="ColorRect" parent="Deadly"]
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
+offset_left = -171.341
+offset_top = -22.1429
+offset_right = -131.341
+offset_bottom = 17.8571
+grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(10, 1)
 color = Color(1, 0, 0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_d17lx")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
@@ -68,3 +63,156 @@ texture = ExtResource("2_t2r77")
 shape = SubResource("RectangleShape2D_uqwls")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="MovingRect" type="RigidBody2D" parent="."]
+position = Vector2(-272, -136)
+collision_layer = 2
+collision_mask = 2
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(0, 150)
+script = ExtResource("4_21sqc")
+
+[node name="ColorRect" type="ColorRect" parent="MovingRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -10.0
+offset_right = 151.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(1, 0.537255, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_x3hng")
+
+[node name="Timer" type="Timer" parent="MovingRect"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="SpawnInterval" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="MovingRect2" parent="." instance=ExtResource("5_hu5nu")]
+position = Vector2(8, 80)
+
+[node name="MovingRect3" type="RigidBody2D" parent="."]
+position = Vector2(200, -272)
+collision_layer = 2
+collision_mask = 2
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(0, 150)
+script = ExtResource("4_21sqc")
+
+[node name="ColorRect" type="ColorRect" parent="MovingRect3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -10.0
+offset_right = 151.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(1, 0.537255, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect3"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_x3hng")
+
+[node name="Timer" type="Timer" parent="MovingRect3"]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[node name="MovingRect4" type="RigidBody2D" parent="."]
+position = Vector2(-224, -336)
+collision_layer = 2
+collision_mask = 2
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(0, 150)
+script = ExtResource("4_21sqc")
+
+[node name="ColorRect" type="ColorRect" parent="MovingRect4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -10.0
+offset_right = 151.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(1, 0.537255, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect4"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_x3hng")
+
+[node name="Timer" type="Timer" parent="MovingRect4"]
+wait_time = 9.0
+one_shot = true
+autostart = true
+
+[node name="MovingRect5" type="RigidBody2D" parent="."]
+position = Vector2(88, -504)
+collision_layer = 2
+collision_mask = 2
+mass = 1000.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_velocity = Vector2(0, 150)
+script = ExtResource("4_21sqc")
+
+[node name="ColorRect" type="ColorRect" parent="MovingRect5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -10.0
+offset_right = 151.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(1, 0.537255, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect5"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_x3hng")
+
+[node name="Timer" type="Timer" parent="MovingRect5"]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="MovingRect/Timer" to="MovingRect" method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnInterval" to="." method="_on_spawn_interval_timeout"]
+[connection signal="timeout" from="MovingRect3/Timer" to="MovingRect3" method="_on_timer_timeout"]
+[connection signal="timeout" from="MovingRect4/Timer" to="MovingRect4" method="_on_timer_timeout"]
+[connection signal="timeout" from="MovingRect5/Timer" to="MovingRect5" method="_on_timer_timeout"]
