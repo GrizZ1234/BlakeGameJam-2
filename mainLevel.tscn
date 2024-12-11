@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjoqaq1t6m5wg"]
+[gd_scene load_steps=9 format=3 uid="uid://cjoqaq1t6m5wg"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_d17lx"]
 [ext_resource type="Script" path="res://main.gd" id="1_sdy21"]
-[ext_resource type="Texture2D" uid="uid://bhwrg783dnyvy" path="res://download.png" id="2_m3o4w"]
 [ext_resource type="Texture2D" uid="uid://x8n8k7ltkoob" path="res://icon.svg" id="2_t2r77"]
 [ext_resource type="Script" path="res://moving_rect.gd" id="4_21sqc"]
 [ext_resource type="PackedScene" uid="uid://boo2mtcdjhm8r" path="res://moving_rect.tscn" id="5_hu5nu"]
@@ -16,14 +15,8 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3hng"]
 size = Vector2(300, 20)
 
-[node name="Node2D" type="Node2D"]
+[node name="mainLevel" type="Node2D"]
 script = ExtResource("1_sdy21")
-
-[node name="Download" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(20, -20)
-scale = Vector2(5.80328, 8.7027)
-texture = ExtResource("2_m3o4w")
 
 [node name="Deadly" type="RigidBody2D" parent="." groups=["DeadlyItems"]]
 position = Vector2(-3, 735)
@@ -63,6 +56,13 @@ texture = ExtResource("2_t2r77")
 shape = SubResource("RectangleShape2D_uqwls")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = -568.0
+offset_top = -312.0
+offset_right = -344.0
+offset_bottom = -289.0
+text = "Score: 0"
 
 [node name="MovingRect" type="RigidBody2D" parent="."]
 position = Vector2(-272, -136)
@@ -211,8 +211,13 @@ wait_time = 12.0
 one_shot = true
 autostart = true
 
+[node name="LaserSpawnInterval" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [connection signal="timeout" from="MovingRect/Timer" to="MovingRect" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnInterval" to="." method="_on_spawn_interval_timeout"]
 [connection signal="timeout" from="MovingRect3/Timer" to="MovingRect3" method="_on_timer_timeout"]
 [connection signal="timeout" from="MovingRect4/Timer" to="MovingRect4" method="_on_timer_timeout"]
 [connection signal="timeout" from="MovingRect5/Timer" to="MovingRect5" method="_on_timer_timeout"]
+[connection signal="timeout" from="LaserSpawnInterval" to="." method="_on_laser_spawn_interval_timeout"]
