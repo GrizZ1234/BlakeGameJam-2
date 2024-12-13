@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cjoqaq1t6m5wg"]
+[gd_scene load_steps=9 format=3 uid="uid://cjoqaq1t6m5wg"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_d17lx"]
 [ext_resource type="Script" path="res://main.gd" id="1_sdy21"]
 [ext_resource type="Texture2D" uid="uid://x8n8k7ltkoob" path="res://icon.svg" id="2_t2r77"]
 [ext_resource type="Script" path="res://moving_rect.gd" id="4_21sqc"]
 [ext_resource type="PackedScene" uid="uid://boo2mtcdjhm8r" path="res://moving_rect.tscn" id="5_hu5nu"]
-[ext_resource type="PackedScene" uid="uid://ubylmhfl3tpk" path="res://laser.tscn" id="6_3bo8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0re8n"]
 size = Vector2(400.976, 40)
@@ -215,8 +214,6 @@ autostart = true
 [node name="LaserSpawnInterval" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="laser" parent="." instance=ExtResource("6_3bo8q")]
 
 [connection signal="timeout" from="MovingRect/Timer" to="MovingRect" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnInterval" to="." method="_on_spawn_interval_timeout"]

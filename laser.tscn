@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ubylmhfl3tpk"]
+[gd_scene load_steps=35 format=3 uid="uid://ubylmhfl3tpk"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_hq16n"]
 [ext_resource type="Texture2D" uid="uid://cmrhpwgal385u" path="res://Laser bolt-1.png.png" id="2_5t5r3"]
@@ -14,10 +14,26 @@
 [ext_resource type="Texture2D" uid="uid://cdg47fycrrjf2" path="res://Laser bolt-8.png.png" id="9_ajycl"]
 [ext_resource type="Texture2D" uid="uid://bd6ntmufmjcwr" path="res://Laser bolt-9.png.png" id="10_7wxcp"]
 [ext_resource type="Texture2D" uid="uid://7wv3vruykxod" path="res://Laser bolt-10.png.png" id="11_3wvjh"]
+[ext_resource type="Texture2D" uid="uid://cgkj2pr3j7yya" path="res://Laser bolt-13.png.png" id="14_ieafj"]
+[ext_resource type="Texture2D" uid="uid://b2a2wivvneg6h" path="res://Laser bolt-14.png.png" id="15_gc5tj"]
+[ext_resource type="Texture2D" uid="uid://bhheoxwkk00s5" path="res://Laser bolt-15.png.png" id="16_bo4qd"]
+[ext_resource type="Texture2D" uid="uid://csfinalxiwd8" path="res://Laser bolt-16.png.png" id="17_086t3"]
+[ext_resource type="Texture2D" uid="uid://j42vhwnnjos0" path="res://Laser bolt-17.png.png" id="18_1ybsb"]
+[ext_resource type="Texture2D" uid="uid://nl7h2fwa0tne" path="res://Laser bolt-18.png.png" id="19_tddqn"]
+[ext_resource type="Texture2D" uid="uid://b88vj8t3r5y48" path="res://Laser bolt-19.png.png" id="20_xyoji"]
+[ext_resource type="Texture2D" uid="uid://c43ganon55a43" path="res://Laser bolt-20.png.png" id="21_0ae66"]
+[ext_resource type="Texture2D" uid="uid://bo6pp2s307bcd" path="res://Laser bolt-21.png.png" id="22_3cfsl"]
+[ext_resource type="Texture2D" uid="uid://goebvjfi8ct1" path="res://Laser bolt-22.png.png" id="23_88rrb"]
+[ext_resource type="Texture2D" uid="uid://ckynk2bm1mrsp" path="res://Laser bolt-23.png.png" id="24_ojt7b"]
+[ext_resource type="Texture2D" uid="uid://bawsk3uovxbpx" path="res://Laser bolt-24.png.png" id="25_3olvl"]
+[ext_resource type="Texture2D" uid="uid://tav4pc8ndre8" path="res://Laser bolt-25.png.png" id="26_2xxqp"]
+[ext_resource type="Texture2D" uid="uid://dicgtpkg4uh21" path="res://Laser bolt-26.png.png" id="27_boypb"]
+[ext_resource type="Texture2D" uid="uid://c4yspdd64vu7e" path="res://Laser bolt-27.png.png" id="28_2d16s"]
+[ext_resource type="Texture2D" uid="uid://jai4eags03jo" path="res://Laser bolt-28.png.png" id="29_bfdei"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73p2h"]
 radius = 48.0
-height = 176.0
+height = 192.0
 
 [sub_resource type="Animation" id="Animation_y8fyb"]
 length = 0.001
@@ -56,10 +72,10 @@ tracks/0/path = NodePath(".:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 1.06667, 2.23333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1, 1.03333, 1.06667, 1.1, 1.13333, 1.16667, 1.2, 1.23333, 1.26667, 1.3, 1.33333, 1.36667, 1.4, 1.43333, 1.46667, 1.5, 1.53333, 1.56667, 1.6, 1.63333, 1.66667, 1.7, 1.73333, 1.76667, 1.8, 1.83333, 1.86667, 1.9, 1.93333, 1.96667, 2, 2.03333, 2.06667, 2.1, 2.13333, 2.16667, 2.2, 2.23333, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333, 2.66667, 2.7, 2.73333, 2.76667, 2.8, 2.83333, 2.86667, 2.9, 2.93333, 2.96667, 3, 3.03333, 3.06667, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_5t5r3"), ExtResource("3_j513i"), ExtResource("4_jutdy"), ExtResource("5_8vlvb"), ExtResource("6_x6srh"), ExtResource("7_qfjp3"), ExtResource("8_oe6yq"), ExtResource("9_ajycl"), ExtResource("10_7wxcp"), ExtResource("11_3wvjh"), ExtResource("4_f5ati"), ExtResource("3_nv4ih"), ExtResource("4_f5ati"), ExtResource("5_667ki")]
+"values": [ExtResource("2_5t5r3"), ExtResource("3_j513i"), ExtResource("4_jutdy"), ExtResource("5_8vlvb"), ExtResource("6_x6srh"), ExtResource("7_qfjp3"), ExtResource("8_oe6yq"), ExtResource("9_ajycl"), ExtResource("10_7wxcp"), ExtResource("11_3wvjh"), ExtResource("4_f5ati"), ExtResource("3_nv4ih"), ExtResource("14_ieafj"), ExtResource("15_gc5tj"), ExtResource("16_bo4qd"), ExtResource("17_086t3"), ExtResource("18_1ybsb"), ExtResource("19_tddqn"), ExtResource("20_xyoji"), ExtResource("21_0ae66"), ExtResource("22_3cfsl"), ExtResource("23_88rrb"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei"), ExtResource("24_ojt7b"), ExtResource("25_3olvl"), ExtResource("26_2xxqp"), ExtResource("27_boypb"), ExtResource("28_2d16s"), ExtResource("29_bfdei"), ExtResource("5_667ki"), ExtResource("29_bfdei")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -68,7 +84,7 @@ tracks/1/path = NodePath("..:collision_layer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.533333),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [4]
@@ -88,7 +104,16 @@ gravity_scale = 0.0
 linear_velocity = Vector2(0, -150)
 script = ExtResource("1_hq16n")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 48.0
+offset_top = 1912.0
+offset_right = 88.0
+offset_bottom = 1952.0
+scale = Vector2(0.28, -113.395)
+color = Color(1, 0, 0, 0.294118)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, -184)
 shape = SubResource("CapsuleShape2D_73p2h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -104,13 +129,5 @@ autoplay = "laserAnimation"
 wait_time = 3.0
 one_shot = true
 autostart = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -3.0
-offset_top = 120.0
-offset_right = 37.0
-offset_bottom = 160.0
-scale = Vector2(0.28, -47.72)
-color = Color(1, 0, 0, 0.294118)
 
 [connection signal="timeout" from="laserTimeout" to="." method="_on_laser_timeout_timeout"]

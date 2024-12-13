@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	self.linear_velocity.y = -250
+	self.linear_velocity.y = -400
 
 func _on_laser_timeout_timeout() -> void:
 	self.queue_free()
