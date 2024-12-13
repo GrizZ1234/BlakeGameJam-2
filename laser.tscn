@@ -1,41 +1,116 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmebkul7dlisx"]
+[gd_scene load_steps=19 format=3 uid="uid://ubylmhfl3tpk"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_hq16n"]
+[ext_resource type="Texture2D" uid="uid://cmrhpwgal385u" path="res://Laser bolt-1.png.png" id="2_5t5r3"]
+[ext_resource type="Texture2D" uid="uid://cja0mo37hi5xl" path="res://Laser bolt-2.png.png" id="3_j513i"]
+[ext_resource type="Texture2D" uid="uid://dqldl7okre8ah" path="res://Laser bolt-12.png.png" id="3_nv4ih"]
+[ext_resource type="Texture2D" uid="uid://de6enjsyai8yr" path="res://Laser bolt-11.png.png" id="4_f5ati"]
+[ext_resource type="Texture2D" uid="uid://csoe8mbjw00gy" path="res://Laser bolt-3.png.png" id="4_jutdy"]
+[ext_resource type="Texture2D" uid="uid://yfet7r6m8kkh" path="res://Laser bolt-4.png.png" id="5_8vlvb"]
+[ext_resource type="Texture2D" uid="uid://qt1l6dh5j5bx" path="res://Laser bolt-29.png.png" id="5_667ki"]
+[ext_resource type="Texture2D" uid="uid://dumjhdp125gly" path="res://Laser bolt-5.png.png" id="6_x6srh"]
+[ext_resource type="Texture2D" uid="uid://cn4rkfl3yl0t3" path="res://Laser bolt-6.png.png" id="7_qfjp3"]
+[ext_resource type="Texture2D" uid="uid://bdk2hvivvk2g0" path="res://Laser bolt-7.png.png" id="8_oe6yq"]
+[ext_resource type="Texture2D" uid="uid://cdg47fycrrjf2" path="res://Laser bolt-8.png.png" id="9_ajycl"]
+[ext_resource type="Texture2D" uid="uid://bd6ntmufmjcwr" path="res://Laser bolt-9.png.png" id="10_7wxcp"]
+[ext_resource type="Texture2D" uid="uid://7wv3vruykxod" path="res://Laser bolt-10.png.png" id="11_3wvjh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0re8n"]
-size = Vector2(400.976, 40)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_73p2h"]
+radius = 48.0
+height = 176.0
 
-[node name="Laser" type="RigidBody2D" groups=["DeadlyItems"]]
-position = Vector2(-800, -1136)
-rotation = 1.57079
-scale = Vector2(8.2, 1.4)
-collision_layer = 8
-collision_mask = 8
+[sub_resource type="Animation" id="Animation_y8fyb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dldps"]
+resource_name = "laserAnimation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 1.06667, 2.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_5t5r3"), ExtResource("3_j513i"), ExtResource("4_jutdy"), ExtResource("5_8vlvb"), ExtResource("6_x6srh"), ExtResource("7_qfjp3"), ExtResource("8_oe6yq"), ExtResource("9_ajycl"), ExtResource("10_7wxcp"), ExtResource("11_3wvjh"), ExtResource("4_f5ati"), ExtResource("3_nv4ih"), ExtResource("4_f5ati"), ExtResource("5_667ki")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:collision_layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjm2j"]
+_data = {
+"RESET": SubResource("Animation_y8fyb"),
+"laserAnimation": SubResource("Animation_dldps")
+}
+
+[node name="laser" type="RigidBody2D" groups=["DeadlyItems"]]
+position = Vector2(0, 600)
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
-lock_rotation = true
-freeze = true
+linear_velocity = Vector2(0, -150)
 script = ExtResource("1_hq16n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(29.6341, -5.00003)
-shape = SubResource("RectangleShape2D_0re8n")
+shape = SubResource("CapsuleShape2D_73p2h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-56, 208)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_fjm2j")
+}
+autoplay = "laserAnimation"
+
+[node name="laserTimeout" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -170.732
-offset_top = -22.8634
-offset_right = -130.732
-offset_bottom = 17.1366
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(10, 1)
-color = Color(1, 0, 0, 0.392157)
+offset_left = -3.0
+offset_top = 120.0
+offset_right = 37.0
+offset_bottom = 160.0
+scale = Vector2(0.28, -47.72)
+color = Color(1, 0, 0, 0.294118)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="laserTimeout" to="." method="_on_laser_timeout_timeout"]

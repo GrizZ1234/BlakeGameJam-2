@@ -8,9 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	self.linear_velocity.y = -250
 
-
-func _on_timer_timeout() -> void:
-	self.collision_layer = 3
-	$ColorRect.color = Color(1.0,0.0,0.0)
+func _on_laser_timeout_timeout() -> void:
+	self.queue_free()

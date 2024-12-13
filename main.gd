@@ -27,5 +27,7 @@ func _on_spawn_interval_timeout() -> void:
 func _on_laser_spawn_interval_timeout() -> void:
 	var randomXPos = rng.randi_range(-500,500)
 	var laserInst = laser.instantiate()
-	laserInst.position = Vector2(100,100)
-	print("laser spawned")
+	laserInst.position = Vector2(randomXPos,800)
+	self.add_child(laserInst)
+	#$LaserSpawnInterval.wait_time*=0.5
+	#print($LaserSpawnInterval.wait_time)
