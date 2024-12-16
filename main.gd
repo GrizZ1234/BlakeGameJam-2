@@ -3,6 +3,11 @@ var rng = RandomNumberGenerator.new()
 var platform = preload("res://moving_rect.tscn") 
 var laser = preload("res://laser.tscn")
 var count = 1
+var laserSuccessCount = 1
+
+func laserSpawnEquation(x: int) -> float:
+	return -1.5/(1+2.14**(-0.25*(x-30)))+2
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +26,10 @@ func _on_spawn_interval_timeout() -> void:
 	var platformInst = platform.instantiate()
 	platformInst.position = Vector2(randomXPos,-450)
 	self.add_child(platformInst)
-	$SpawnInterval.wait_time = rng.randf_range(1.25,1.65)
+	#spawn interval can be modeled here: https://www.desmos.com/calculator/109f5mwh3u
+	#I did the modeling myself ;)
+	$SpawnInterval.wait_time = laserSpawnEquation(laserSuccessCount)
+	laserSuccessCount += 1
 
 
 func _on_laser_spawn_interval_timeout() -> void:
