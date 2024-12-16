@@ -1,24 +1,33 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjoqaq1t6m5wg"]
+[gd_scene load_steps=12 format=3 uid="uid://cjoqaq1t6m5wg"]
 
 [ext_resource type="Script" path="res://character_body_2d.gd" id="1_d17lx"]
 [ext_resource type="Script" path="res://main.gd" id="1_sdy21"]
-[ext_resource type="Texture2D" uid="uid://x8n8k7ltkoob" path="res://icon.svg" id="2_t2r77"]
+[ext_resource type="Texture2D" uid="uid://ceiqbiitb8fmx" path="res://Pixel-backround.jpg" id="2_2t3bs"]
+[ext_resource type="Texture2D" uid="uid://b8mxm86kspgv1" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="3_mq083"]
+[ext_resource type="Texture2D" uid="uid://dqetqoiv6k1v7" path="res://Hazmat Character-2.png.png" id="4_1dhwu"]
 [ext_resource type="Script" path="res://moving_rect.gd" id="4_21sqc"]
 [ext_resource type="PackedScene" uid="uid://boo2mtcdjhm8r" path="res://moving_rect.tscn" id="5_hu5nu"]
+[ext_resource type="AudioStream" uid="uid://itpq8xe8hnb1" path="res://insane (1).mp3" id="6_3raww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0re8n"]
 size = Vector2(400.976, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqwls"]
-size = Vector2(128, 128)
+size = Vector2(88, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3hng"]
 size = Vector2(300, 20)
 
 [node name="mainLevel" type="Node2D"]
+scale = Vector2(1.00379, 1)
 script = ExtResource("1_sdy21")
 
-[node name="Deadly" type="RigidBody2D" parent="."]
+[node name="Pixel-backround" type="Sprite2D" parent="."]
+position = Vector2(60.0002, -516)
+scale = Vector2(11.1503, 15.1485)
+texture = ExtResource("2_2t3bs")
+
+[node name="Deadly" type="RigidBody2D" parent="." groups=["DeadlyItems"]]
 position = Vector2(-3, 735)
 scale = Vector2(8.2, 1.4)
 gravity_scale = 0.0
@@ -42,7 +51,14 @@ offset_bottom = 17.8571
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(10, 1)
-color = Color(1, 0, 0, 1)
+color = Color(0.176471, 0.568627, 0.8, 0.447059)
+
+[node name="PointLight2D" type="PointLight2D" parent="Deadly"]
+scale = Vector2(1, 3.3751)
+color = Color(0.364706, 1, 1, 1)
+energy = 6.55
+texture = ExtResource("3_mq083")
+texture_scale = 1.15
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 collision_layer = 7
@@ -50,9 +66,12 @@ collision_mask = 7
 script = ExtResource("1_d17lx")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_t2r77")
+position = Vector2(56, 40)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("4_1dhwu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_uqwls")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
@@ -63,6 +82,10 @@ offset_top = -312.0
 offset_right = -344.0
 offset_bottom = -289.0
 text = "Score: 0"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+stream = ExtResource("6_3raww")
+autoplay = true
 
 [node name="MovingRect" type="RigidBody2D" parent="."]
 position = Vector2(-272, -136)
@@ -87,7 +110,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-color = Color(1, 0.537255, 0, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect"]
@@ -100,7 +123,7 @@ one_shot = true
 autostart = true
 
 [node name="SpawnInterval" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 1.25
 autostart = true
 
 [node name="MovingRect2" parent="." instance=ExtResource("5_hu5nu")]
@@ -129,7 +152,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-color = Color(1, 0.537255, 0, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect3"]
@@ -164,7 +187,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-color = Color(1, 0.537255, 0, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect4"]
@@ -199,7 +222,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-color = Color(1, 0.537255, 0, 1)
+color = Color(0.176419, 0.176419, 0.176419, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingRect5"]
@@ -215,6 +238,7 @@ autostart = true
 wait_time = 3.0
 autostart = true
 
+[connection signal="finished" from="CharacterBody2D/AudioStreamPlayer2D" to="CharacterBody2D" method="_on_audio_stream_player_2d_finished"]
 [connection signal="timeout" from="MovingRect/Timer" to="MovingRect" method="_on_timer_timeout"]
 [connection signal="timeout" from="SpawnInterval" to="." method="_on_spawn_interval_timeout"]
 [connection signal="timeout" from="MovingRect3/Timer" to="MovingRect3" method="_on_timer_timeout"]

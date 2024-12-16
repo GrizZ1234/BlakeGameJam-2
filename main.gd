@@ -1,3 +1,4 @@
+#lighting tutorial from https://docs.godotengine.org/en/stable/tutorials/2d/2d_lights_and_shadows.html
 extends Node2D
 var rng = RandomNumberGenerator.new()
 var platform = preload("res://moving_rect.tscn") 
@@ -28,7 +29,7 @@ func _on_spawn_interval_timeout() -> void:
 	self.add_child(platformInst)
 	#spawn interval can be modeled here: https://www.desmos.com/calculator/109f5mwh3u
 	#I did the modeling myself ;)
-	$SpawnInterval.wait_time = laserSpawnEquation(laserSuccessCount)
+	$SpawnInterval.wait_time = rng.randf_range(1.25,1.65)
 	laserSuccessCount += 1
 
 
@@ -37,5 +38,5 @@ func _on_laser_spawn_interval_timeout() -> void:
 	var laserInst = laser.instantiate()
 	laserInst.position = Vector2(randomXPos,800)
 	self.add_child(laserInst)
-	#$LaserSpawnInterval.wait_time*=0.5
+	$LaserSpawnInterval.wait_time =  laserSpawnEquation(laserSuccessCount)
 	#print($LaserSpawnInterval.wait_time)

@@ -6,7 +6,7 @@ func _ready() -> void:
 	if Singleton.value > Singleton.highScore:
 		Singleton.highScore = Singleton.value
 	$Label.text = "High Score: " + str(Singleton.highScore)
-
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	Singleton.value = 0
 	get_tree().change_scene_to_file("res://mainLevel.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit()

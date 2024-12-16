@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://4i8yj11ch1l4"]
+
+[ext_resource type="Script" path="res://splash_screen.gd" id="1_0yd0b"]
+[ext_resource type="Texture2D" uid="uid://egjni0p0qgiv" path="res://Screenshot 2024-12-16 at 2.31.07 PM.png" id="2_v3q3v"]
+[ext_resource type="AudioStream" uid="uid://brqyck0thwa82" path="res://END_OF_TIME.mp3" id="3_q4cxl"]
+[ext_resource type="Texture2D" uid="uid://bg66nx8cwqdxm" path="res://Screenshot 2024-12-16 at 2.34.51 PM.png" id="3_uqrwg"]
+
+[node name="splashScreen" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_0yd0b")
+
+[node name="Screenshot2024-12-16At2_31_07 pm" type="Sprite2D" parent="."]
+position = Vector2(-8, -21)
+texture = ExtResource("2_v3q3v")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+stream = ExtResource("3_q4cxl")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -87.0
+offset_top = 25.0
+offset_right = -47.0
+offset_bottom = 65.0
+scale = Vector2(5, 1.8)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -87.0
+offset_top = 25.0
+offset_right = 113.0
+offset_bottom = 97.0
+text = "Play"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -367.0
+offset_top = -97.0
+offset_right = -255.0
+offset_bottom = -74.0
+rotation = -0.186227
+scale = Vector2(5.85768, 4.76638)
+text = "Fusion Jumper"
+
+[node name="Screenshot2024-12-16At2_34_51 pm" type="Sprite2D" parent="."]
+position = Vector2(-438, 203)
+scale = Vector2(0.40474, 0.42952)
+texture = ExtResource("3_uqrwg")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

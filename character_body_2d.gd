@@ -4,6 +4,8 @@ extends CharacterBody2D
 const SPEED = 400.0
 const JUMP_VELOCITY = -700.0
 var gameOver = false
+var normalTexture = load("res://Hazmat Character-2.png.png")
+var jumpTexture = load("res://Hazmat Character-1.png.png")
 
 
 func _physics_process(delta: float) -> void:
@@ -11,6 +13,8 @@ func _physics_process(delta: float) -> void:
 		# Add the gravity.
 		if not is_on_floor():
 			velocity += get_gravity() * delta
+			$Sprite2D.texture = jumpTexture
+		else: $Sprite2D.texture = normalTexture
 
 		# Handle jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
