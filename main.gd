@@ -6,7 +6,7 @@ var count = 1
 var laserSuccessCount = 1
 
 func laserSpawnEquation(x: int) -> float:
-	return -1.5/(1+2.14**(-0.25*(x-30)))+2
+	return -1.5/(1+2.718**(-0.25*(x-30)))+2
 	
 
 # Called when the node enters the scene tree for the first time.
